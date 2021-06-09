@@ -82,6 +82,7 @@ class TitleState extends MusicBeatState
 		}
 		
 		FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
+		FlxG.save.data.oldTitle = false;
 		FlxG.save.flush();
 
 		#if FREEPLAY
