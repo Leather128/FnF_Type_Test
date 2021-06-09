@@ -16,8 +16,6 @@ class OptionsSubState extends MusicBeatSubstate
 	var curSelected:Int = 0;
 	var grpOptionsTexts:FlxTypedGroup<Alphabet>;
 
-	var controlsBox = new ControlsBox();
-
 	var inMenu = false;
 
 	public function new()
@@ -81,16 +79,8 @@ class OptionsSubState extends MusicBeatSubstate
 
 		if (controls.BACK)
 		{
-			if (inMenu)
+			if (!inMenu)
 			{
-				// Cool Options things
-				if (textMenuItems[curSelected] == 'Controls')
-				{
-					remove(controlsBox);
-				}
-
-				inMenu = false;
-			} else {
 				FlxG.switchState(new MainMenuState());
 			}
 		}
@@ -100,57 +90,25 @@ class OptionsSubState extends MusicBeatSubstate
 			if (!inMenu)
 			{
 				// yes ik weird ordering, but if i dont do it this way then things kinda mess up (switching pages specifically)
-				if (textMenuItems[curSelected] != 'Muted' && textMenuItems[curSelected] != 'Old Title' && textMenuItems[curSelected] != 'Opponent Side Glow' && textMenuItems[curSelected] != 'VSync')
+				if (textMenuItems[curSelected] != 'Muted')
 				{
 					inMenu = true;
 				}
 
 				switch(textMenuItems[curSelected])
 				{
-					case 'Controls':
-						add(controlsBox);
-
 					case 'Muted':
 						FlxG.sound.muted = !FlxG.sound.muted;
 
 					case 'Back':
 					{
-						textMenuItems = ['Controls', 'Sound', 'Misc', 'Graphics'];
+						textMenuItems = ['Sound'];
 						spawnInTexts();
 					}
 
 					case 'Sound':
 					{
 						textMenuItems = ["Back", "Muted", "Volume"];
-						spawnInTexts();
-					}
-
-					case 'Graphics':
-					{
-						textMenuItems = ["Back", "Opponent Side Glow", "VSync"];
-						spawnInTexts();
-					}
-
-					case 'Old Title':
-					{
-						if (FlxG.save.data.oldTitle == null)
-						{
-							FlxG.save.data.oldTitle = false;
-						}
-	
-						FlxG.save.data.oldTitle = !FlxG.save.data.oldTitle;
-						FlxG.save.flush();
-					}
-
-					case 'Opponent Side Glow':
-					{	
-						FlxG.save.data.enemyGlow = !FlxG.save.data.enemyGlow;
-						FlxG.save.flush();
-					}
-
-					case 'Misc':
-					{
-						textMenuItems = ["Back", "Downscroll", "Old Title"];
 						spawnInTexts();
 					}
 				}
