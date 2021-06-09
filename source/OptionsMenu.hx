@@ -14,10 +14,11 @@ import lime.utils.Assets;
 
 class OptionsMenu extends MusicBeatState
 {
-	var selector:FlxText;
+	var textMenuItems:Array<String> = ['Sound'];
 	var curSelected:Int = 0;
+	var grpOptionsTexts:FlxTypedGroup<Alphabet>;
 
-	private var grpControls:FlxTypedGroup<Alphabet>;
+	var inMenu = false;
 
 	override function create()
 	{
@@ -31,84 +32,124 @@ class OptionsMenu extends MusicBeatState
 
 		super.create();
 
-		openSubState(new OptionsSubState());
+		//openSubState(new OptionsSubState());
+		grpOptionsTexts = new FlxTypedGroup<Alphabet>();
+		add(grpOptionsTexts);
+
+		spawnInTexts();
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		/* 
-			if (controls.ACCEPT)
+		if (!inMenu)
+		{
+			if (controls.UP_P)
 			{
-				changeBinding();
+				curSelected -= 1;
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 			}
 
-			if (isSettingControl)
-				waitingInput();
-			else
+			if (controls.DOWN_P)
 			{
-				if (controls.BACK)
-					FlxG.switchState(new MainMenuState());
-				if (controls.UP_P)
-					changeSelection(-1);
-				if (controls.DOWN_P)
-					changeSelection(1);
+				curSelected += 1;
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 			}
-		 */
-	}
+		} else {
+			if (controls.UP_P)
+			{
+				if (textMenuItems[curSelected] == 'Volume')
+				{
+					if (FlxG.sound.volume < 1)
+					{
+						FlxG.sound.volume += 1;
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					}
+				}
+			}
 
-	function waitingInput():Void
-	{
-		if (FlxG.keys.getIsDown().length > 0)
-		{
-			PlayerSettings.player1.controls.replaceBinding(Control.LEFT, Keys, FlxG.keys.getIsDown()[0].ID, null);
+			if (controls.DOWN_P)
+			{
+				if (textMenuItems[curSelected] == 'Volume')
+				{
+					if (FlxG.sound.volume > 0.1)
+					{
+						FlxG.sound.volume -= 0.1;
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					}
+				}
+			}
 		}
-		// PlayerSettings.player1.controls.replaceBinding(Control)
-	}
-
-	var isSettingControl:Bool = false;
-
-	function changeBinding():Void
-	{
-		if (!isSettingControl)
-		{
-			isSettingControl = true;
-		}
-	}
-
-	function changeSelection(change:Int = 0)
-	{
-		#if !switch
-		NGio.logEvent('Fresh');
-		#end
-
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-
-		curSelected += change;
 
 		if (curSelected < 0)
-			curSelected = grpControls.length - 1;
-		if (curSelected >= grpControls.length)
+			curSelected = textMenuItems.length - 1;
+
+		if (curSelected >= textMenuItems.length)
 			curSelected = 0;
 
-		// selector.y = (70 * curSelected) + 30;
-
-		var bullShit:Int = 0;
-
-		for (item in grpControls.members)
+		if (controls.BACK)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
+			if (!inMenu)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
+				FlxG.switchState(new MainMenuState());
+			} else {
+				inMenu = false;
 			}
+		}
+
+		if (controls.ACCEPT)
+		{
+			if (!inMenu)
+			{
+				// yes ik weird ordering, but if i dont do it this way then things kinda mess up (switching pages specifically)
+				if (textMenuItems[curSelected] != 'Muted')
+				{
+					inMenu = true;
+				}
+
+				switch(textMenuItems[curSelected])
+				{
+					case 'Muted':
+						FlxG.sound.muted = !FlxG.sound.muted;
+
+					case 'Back':
+					{
+						textMenuItems = ['Sound'];
+						spawnInTexts();
+					}
+
+					case 'Sound':
+					{
+						textMenuItems = ["Back", "Muted", "Volume"];
+						spawnInTexts();
+					}
+				}
+			}
+		}
+
+		var bruh = 0;
+
+		for (x in grpOptionsTexts.members)
+		{
+			x.targetY = bruh - curSelected;
+			bruh++;
+		}
+	}
+
+	function spawnInTexts()
+	{
+		curSelected = 0;
+		inMenu = false;
+
+		grpOptionsTexts.clear();
+
+		for (i in 0...textMenuItems.length)
+		{
+			var option = new Alphabet(20, 20 + (i * 100), textMenuItems[i], true, false);
+			option.isMenuItem = true;
+			option.targetY = i;
+			grpOptionsTexts.add(option);
 		}
 	}
 }

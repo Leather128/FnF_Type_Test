@@ -60,10 +60,7 @@ class TitleState extends MusicBeatState
 		FlxG.save.bind('funkin', 'leatherandron');
 
 		PlayerSettings.player1.controls.loadKeyBinds();
-
 		Highscore.load();
-
-		Assets.loadLibrary("songs").onComplete(function (_) {  });
 
 		if (FlxG.save.data.weekUnlocked != null)
 		{
