@@ -19,17 +19,17 @@
 	<SubTexture name="n0000" x="755" y="0" width="66" height="76"/>
 	<SubTexture name="o0000" x="825" y="0" width="73" height="77"/>
 	<SubTexture name="p0000" x="902" y="0" width="54" height="76"/>
-	<SubTexture name="q0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="r0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="s0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="t0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="u0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="v0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="w0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="x0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="y0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="z0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name=",0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name=".0000" x="0" y="0" width="70" height="76"/>
-	<SubTexture name="?0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="q0000" x="0" y="124" width="79" height="85"/>
+	<SubTexture name="r0000" x="103" y="125" width="60" height="75"/>
+	<SubTexture name="s0000" x="186" y="124" width="51" height="78"/>
+	<SubTexture name="t0000" x="261" y="125" width="57" height="75"/>
+	<SubTexture name="u0000" x="346" y="125" width="60" height="76"/>
+	<SubTexture name="v0000" x="433" y="125" width="68" height="75"/>
+	<SubTexture name="w0000" x="521" y="125" width="99" height="75"/>
+	<SubTexture name="x0000" x="640" y="125" width="65" height="75"/>
+	<SubTexture name="y0000" x="724" y="125" width="63" height="75"/>
+	<SubTexture name="z0000" x="807" y="125" width="60" height="75"/>
+	<SubTexture name=".0000" x="892" y="180" width="22" height="21"/>
+	<SubTexture name=",0000" x="938" y="181" width="23" height="31"/>
+	<SubTexture name="?0000" x="990" y="124" width="43" height="77"/>
 </TextureAtlas>
