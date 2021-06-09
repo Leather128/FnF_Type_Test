@@ -78,7 +78,7 @@ class TitleState extends MusicBeatState
 
 		if (FlxG.save.data.enemyGlow == null)
 		{
-			FlxG.save.data.enemyGlow = true;
+			FlxG.save.data.enemyGlow = false;
 		}
 		
 		FlxG.save.data.weekUnlocked = StoryMenuState.weekUnlocked;
