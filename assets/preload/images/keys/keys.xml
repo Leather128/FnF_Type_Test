@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="keys.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- ^^^ Liar -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="a0000" x="0" y="0" width="70" height="77"/>
+	<SubTexture name="b0000" x="70" y="0" width="55" height="77"/>
+	<SubTexture name="c0000" x="125" y="0" width="61" height="78"/>
+	<SubTexture name="d0000" x="189" y="0" width="65" height="77"/>
+	<SubTexture name="e0000" x="258" y="0" width="46" height="76"/>
+	<SubTexture name="f0000" x="308" y="0" width="44" height="76"/>
+	<SubTexture name="g0000" x="352" y="0" width="65" height="77"/>
+	<SubTexture name="h0000" x="423" y="0" width="62" height="77"/>
+	<SubTexture name="i0000" x="494" y="0" width="19" height="76"/>
+	<SubTexture name="j0000" x="515" y="0" width="37" height="77"/>
+	<SubTexture name="k0000" x="560" y="0" width="59" height="76"/>
+	<SubTexture name="l0000" x="619" y="0" width="46" height="76"/>
+	<SubTexture name="m0000" x="666" y="0" width="81" height="76"/>
+	<SubTexture name="n0000" x="755" y="0" width="66" height="76"/>
+	<SubTexture name="o0000" x="825" y="0" width="73" height="77"/>
+	<SubTexture name="p0000" x="902" y="0" width="54" height="76"/>
+	<SubTexture name="q0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="r0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="s0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="t0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="u0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="v0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="w0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="x0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="y0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="z0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name=",0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name=".0000" x="0" y="0" width="70" height="76"/>
+	<SubTexture name="?0000" x="0" y="0" width="70" height="76"/>
+</TextureAtlas>
