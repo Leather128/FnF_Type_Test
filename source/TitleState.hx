@@ -146,7 +146,7 @@ class TitleState extends MusicBeatState
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
-		version = "v" + Application.current.meta.get('version');
+		version = "Funkin' Typing Test " + Application.current.meta.get('version');
 
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
