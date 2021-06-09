@@ -11,7 +11,7 @@ class GamerKey extends FlxSprite
         antialiasing = false;
 		frames = Paths.getSparrowAtlas('keys/keys');
 
-        animation.addByPrefix(character, character, 1);
+        animation.addByPrefix(character, character.toLowerCase(), 1);
 
         animation.play(character, true, false, 0);
     }
