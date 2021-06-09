@@ -109,7 +109,6 @@ class StoryMenuState extends MusicBeatState
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
 		grpLocks = new FlxTypedGroup<FlxSprite>();
-		add(grpLocks);
 
 		trace("Line 70");
 		
@@ -205,6 +204,7 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 150");
 
 		add(yellowBG);
+		add(grpLocks);
 		add(grpWeekCharacters);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
